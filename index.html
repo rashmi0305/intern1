@@ -139,9 +139,9 @@
 </head>
 <body>
     <h1>Welcome to our website</h1>
-    <h2>Upload Images Folder</h2>
+    <h2>Upload Kids Images Folder</h2>
     <input type="file" id="imageFolderUpload" webkitdirectory multiple>
-    <h2>Upload CSV or TXT File</h2>
+    <h2>Upload CSV File</h2>
     <input type="file" id="dataFileUpload" accept=".csv, .txt">
     <button id="generate-btn">Generate PNG</button>
     <button id="download-csv-btn" style="display:none;">Download CSV</button> <!-- Hidden button for CSV download -->
@@ -168,7 +168,7 @@
             });
 
             if (images.length === 0) {
-                alert("Please upload images.");
+                alert("Please upload Kids_images .");
             } else {
                 alert("Images uploaded successfully.");
             }
