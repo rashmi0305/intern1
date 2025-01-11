@@ -5,148 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulk Kids' Name Slip Generator</title>
     <style>
-       
-        
-            /* General Body Styling */
-            body {
-             font-family: Arial, sans-serif;
-             background-image: url('back.png');
-             background-size: cover;
-             background-position: center;
-             background-attachment: fixed;
-             margin: 0;
-             padding: 0;
-            
-         }
-     
-         header {
-             background-color: #4a90e2;
-             color: white;
-             padding: 20px 10px;
-             text-align: center;
-         }
-     
-         h1 {
-             margin: 0;
-             font-size: 2rem;
-             background-color: aqua;
-             border-radius: 55%;
-             text-align: center;
-         }
-     
-         h2 {
-             margin: 15px 0 10px;
-             font-size: 2rem;
-             color: #333;
-         }
-     
-         /* Container Styling */
-         .container {
-             max-width: 900px;
-             margin: 20px auto;
-             background-color: white;
-             padding: 20px;
-             border-radius: 10px;
-             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-         }
-     
-         label {
-             font-weight: bold;
-             display: block;
-             margin-bottom: 5px;
-         }
-     
-         input[type="file"] {
-             margin-bottom: 20px;
-         }
-     
-         button {
-             background-color: #4a90e2;
-             color: white;
-             border: none;
-             padding: 10px 15px;
-             font-size: 1rem;
-             border-radius: 5px;
-             cursor: pointer;
-             transition: background-color 0.3s ease;
-         }
-     
-         button:hover {
-             background-color: #3c7ac4;
-         }
-     
-         /* Preview Container */
-         #preview-container {
-             display: flex;
-             flex-wrap: wrap;
-             gap: 20px;
-             margin-top: 20px;
-         }
-     
-         .preview-card {
-             border: 1px solid #ccc;
-             border-radius: 10px;
-             background-color: #fff;
-             padding: 15px;
-             width: 220px;
-             display: flex;
-             flex-direction: column;
-             align-items: center;
-             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-             transition: transform 0.3s ease;
-         }
-     
-         .preview-card:hover {
-             transform: translateY(-5px);
-         }
-     
-         .preview-card img {
-             width: 120px;
-             height: 120px;
-             border-radius: 50%;
-             object-fit: cover;
-             margin-bottom: 10px;
-             border: 2px solid #4a90e2;
-         }
-     
-         .preview-card input {
-             margin-bottom: 10px;
-             width: 90%;
-             padding: 8px;
-             font-size: 1rem;
-             border: 1px solid #ccc;
-             border-radius: 5px;
-         }
-     
-         .duplicate-btn {
-             background-color: #ff8c00;
-             color: white;
-             padding: 5px 10px;
-             border: none;
-             border-radius: 5px;
-             cursor: pointer;
-             font-size: 0.9rem;
-         }
-     
-         .duplicate-btn:hover {
-             background-color: #e67e00;
-         }
-     
-         footer {
-             margin-top: 20px;
-             text-align: center;
-             font-size: 0.9rem;
-             color: #666;
-         }
-         </style>
-    
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('back.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            background-color: aqua;
+            border-radius: 55%;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 15px 0 10px;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3c7ac4;
+        }
+
+        /* Preview Container */
+        #preview-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .preview-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 15px;
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .preview-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid #4a90e2;
+        }
+
+        .preview-card input {
+            margin-bottom: 10px;
+            width: 90%;
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .duplicate-btn {
+            background-color: #ff8c00;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .duplicate-btn:hover {
+            background-color: #e67e00;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to our website</h1>
-    <h2>Upload Folder</h2>
-    <input type="file" id="folderUpload" webkitdirectory multiple>
-    <h2>Upload Background Image</h2>
-    <input type="file" id="backgroundUpload" accept="image/*">
+    <h2>Upload Images Folder</h2>
+    <input type="file" id="imageFolderUpload" webkitdirectory multiple>
+    <h2>Upload CSV or TXT File</h2>
+    <input type="file" id="dataFileUpload" accept=".csv, .txt">
     <button id="generate-btn">Generate PNG</button>
     <button id="download-csv-btn" style="display:none;">Download CSV</button> <!-- Hidden button for CSV download -->
     <div id="preview-container"></div>
@@ -155,42 +151,39 @@
         const previewContainer = document.getElementById("preview-container");
         let kidData = []; // Stores details of each kid for bulk processing
         let backgroundImage = null; // Stores the uploaded background image
+        let images = []; // Stores images for kids
 
-        document.getElementById("folderUpload").addEventListener("change", handleFileUpload);
-        document.getElementById("backgroundUpload").addEventListener("change", handleBackgroundUpload);
+        document.getElementById("imageFolderUpload").addEventListener("change", handleImageFolderUpload);
+        document.getElementById("dataFileUpload").addEventListener("change", handleDataFileUpload);
         document.getElementById("generate-btn").addEventListener("click", () => generatePNG(kidData));
-        document.getElementById("download-csv-btn").addEventListener("click", downloadCSV);
 
-        function handleBackgroundUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                backgroundImage = URL.createObjectURL(file);
-                alert("Background image uploaded successfully.");
-            }
-        }
-
-        function handleFileUpload(event) {
+        function handleImageFolderUpload(event) {
             const files = event.target.files;
-            const images = [];
-            let dataFile = null;
+            images = []; // Reset images array
 
-            // Filter files
             Array.from(files).forEach(file => {
-                if (file.name.endsWith(".csv") || file.name.endsWith(".txt")) {
-                    dataFile = file;
-                } else if (file.type.startsWith("image/")) {
+                if (file.type.startsWith("image/")) {
                     images.push(file);
                 }
             });
 
-            if (dataFile) {
-                parseDataFile(dataFile, images);
+            if (images.length === 0) {
+                alert("Please upload images.");
             } else {
-                alert("Please include a CSV or TXT file with kids' details.");
+                alert("Images uploaded successfully.");
             }
         }
 
-        function parseDataFile(dataFile, images) {
+        function handleDataFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                parseDataFile(file);
+            } else {
+                alert("Please upload a valid CSV or TXT file.");
+            }
+        }
+
+        function parseDataFile(dataFile) {
             const reader = new FileReader();
 
             reader.onload = function (e) {
@@ -210,8 +203,6 @@
                     }
                 });
 
-                // Enable the download CSV button
-                document.getElementById("download-csv-btn").style.display = "block";
                 console.log("Parsed Kid Data:", kidData); // Debugging: Check parsed data
             };
 
@@ -247,6 +238,13 @@
             classInput.title = "Edit kid's class";
             classInput.addEventListener("input", e => (kid.kids_class = e.target.value));
             card.appendChild(classInput);
+            const schoolInput = document.createElement("input");
+            schoolInput.type = "text";
+            schoolInput.value = kid.kids_school;
+            schoolInput.placeholder = "Enter kid's school";
+            schoolInput.title = "Edit kid's class";
+            schoolInput.addEventListener("input", e => (kid.kids_school = e.target.value));
+            card.appendChild(schoolInput);
 
             const duplicateBtn = document.createElement("button");
             duplicateBtn.textContent = "+";
@@ -296,8 +294,14 @@
                         img.onload = () => {
                             ctx.drawImage(img, 50, y, 100, 100);
                             ctx.font = "20px Arial";
-                            ctx.fillStyle = "black";
+                            ctx.fillStyle = "purple";
                             ctx.fillText(`Name: ${kid.kids_name}`, 200, y + 30);
+                            y+=30;
+                            ctx.fillText(`Class: ${kid.kids_class}`, 200, y + 30);
+                            y+=30;
+                            ctx.fillText(`School Name: ${kid.kids_school}`, 200, y + 30);
+                            y+=30;
+                            ctx.fillText(`Roll num: ${kid.kids_roll_no}`, 200, y + 30);
                             y += 150;
                             resolve();
                         };
@@ -317,20 +321,6 @@
                     })
                     .catch(() => alert("Error generating PNG"));
             });
-        }
-
-        function downloadCSV() {
-            const headers = Object.keys(kidData[0] || {});
-            const rows = kidData.map(kid => {
-                return headers.map(header => kid[header] || "").join(",");
-            });
-
-            const csvContent = [headers.join(","), ...rows].join("\n");
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "output.csv";
-            link.click();
         }
     </script>
 </body>
