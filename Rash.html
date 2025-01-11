@@ -307,7 +307,7 @@
                 Promise.all(imagePromises)
                     .then(() => {
                         const link = document.createElement("a");
-                        link.download = "output.png";
+                        link.download = "Final.png";
                         link.href = canvas.toDataURL();
                         link.click();
                     })
