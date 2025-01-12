@@ -177,42 +177,59 @@
         function handleDataFileUpload(event) {
             const file = event.target.files[0];
             if (file) {
-                parseDataFile(file);
+                parseDataFile(file,images);
             } else {
                 alert("Please upload a valid CSV or TXT file.");
             }
         }
 
-        function parseDataFile(dataFile) {
+        function parseDataFile(dataFile, images) {
             const reader = new FileReader();
-
+        
             reader.onload = function (e) {
                 const content = e.target.result;
                 const rows = content.split("\n").map(row => row.split(","));
                 const headers = rows[0].map(h => h.trim());
-
+        
+                kidData = []; // Reset kid data for each upload
+                previewContainer.innerHTML = ""; // Clear previous previews
+        
                 rows.slice(1).forEach((row, index) => {
-                    if (index < images.length) {
-                        const kidDetails = {};
-                        headers.forEach((header, i) => {
-                            kidDetails[header] = row[i]?.trim() || ""; // Handle missing values
-                        });
-                        kidDetails.image = images[index];
+                    const kidDetails = {};
+        
+                    headers.forEach((header, i) => {
+                        kidDetails[header] = row[i]?.trim() || "N/A";
+                    });
+        
+                    if (!kidDetails.image_name) {
+                        console.warn(`Row ${index + 1}: Missing 'kids_name' field.`);
+                        return;
+                    }
+        
+                    const matchedImage = images.find(image => 
+                        image.name.toLowerCase().includes(kidDetails.image_name.toLowerCase())
+                    );
+        
+                    if (matchedImage) {
+                        kidDetails.image = matchedImage;
                         kidData.push(kidDetails);
-                        displayPreview(kidDetails);
+                        displayPreview(kidDetails); // Only show matched images in the preview
+                    } else {
+                        console.warn(`No matching image found for ${kidDetails.kids_name}`);
                     }
                 });
-
-                console.log("Parsed Kid Data:", kidData); // Debugging: Check parsed data
+        
+                console.log("Parsed Kid Data with Images:", kidData); // Debugging: Check matched data
             };
-
+        
             reader.onerror = function (e) {
                 console.error("Error reading the file:", e);
                 alert("Failed to read the data file.");
             };
-
+        
             reader.readAsText(dataFile);
         }
+        
 
         function displayPreview(kid) {
             const card = document.createElement("div");
@@ -295,14 +312,14 @@
                             ctx.drawImage(img, 50, y, 100, 100);
                             ctx.font = "20px Arial";
                             ctx.fillStyle = "purple";
-                            ctx.fillText(`Name: ${kid.kids_name}`, 200, y + 30);
-                            y+=30;
-                            ctx.fillText(`Class: ${kid.kids_class}`, 200, y + 30);
-                            y+=30;
-                            ctx.fillText(`School Name: ${kid.kids_school}`, 200, y + 30);
-                            y+=30;
-                            ctx.fillText(`Roll num: ${kid.kids_roll_no}`, 200, y + 30);
-                            y += 150;
+                            ctx.fillText(`Name: ${kid.kids_name}`, 200, y + 20);
+                            y+=20;
+                            ctx.fillText(`Class: ${kid.kids_class}`, 200, y + 20);
+                            y+=20;
+                            ctx.fillText(`School Name: ${kid.kids_school}`, 200, y + 20);
+                            y+=20;
+                            ctx.fillText(`Roll num: ${kid.kids_roll_no}`, 200, y + 20);
+                            y += 90;
                             resolve();
                         };
 
